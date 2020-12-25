@@ -6,8 +6,9 @@ import Name from "../name/Name";
 import {useForm} from "react-hook-form";
 import Age from "../age/Age";
 import {yupResolver} from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+// import * as yup from 'yup';
 import Gender from "../gender/Gender";
+import {schema} from "./yupSchema";
 
 
 export default function Survey() {
@@ -20,20 +21,6 @@ export default function Survey() {
     // Email?
     // Subject?
     // Comment?
-
-    let schema = yup.object().shape({
-        name: yup.string()
-            .required("Please enter your name")
-            .matches(/^[a-zA-Z\s]+$/, "Please enter a valid name"),
-        age: yup.number()
-            .typeError("Please enter your age")
-            .positive("Please enter a valid age")
-            .integer("Please enter a whole number"),
-        gender: yup.string()
-            .required("Please select your gender"),
-        email: yup.string()
-            .email("Please enter a valid email address"),
-    });
 
     const reactHookForm = useForm({
         resolver: yupResolver(schema)
