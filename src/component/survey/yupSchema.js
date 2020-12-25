@@ -12,5 +12,6 @@ export const schema = yup.object().shape({
     gender: yup.string()
         .required("Please select your gender"),
     email: yup.string()
+        .required("Please enter your email address")
         .email("Please enter a valid email address"),
 });

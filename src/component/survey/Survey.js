@@ -9,13 +9,14 @@ import {yupResolver} from '@hookform/resolvers/yup';
 // import * as yup from 'yup';
 import Gender from "../gender/Gender";
 import {schema} from "./yupSchema";
+import Email from "../email/Email";
 
 
 export default function Survey() {
 
     const classes = useStyles();
 
-    // Name?
+    // Email?
     // Age?
     // Gender?
     // Email?
@@ -35,8 +36,8 @@ export default function Survey() {
     }
 
     useEffect(() => {
-        if (isSubmitSuccessful) reset();
-    }, [isSubmitSuccessful, reset])
+        if (isSubmitSuccessful) resetForm();
+    }, [isSubmitSuccessful])
 
     const onSubmit = data => console.log("*** form data", data);
 
@@ -72,6 +73,11 @@ export default function Survey() {
                             reactHookForm={reactHookForm}
                             resetManual={resetManual}
                         />
+                    </Grid>
+
+                    {/* Email */}
+                    <Grid item xs={12}>
+                        <Email reactHookForm={reactHookForm}/>
                     </Grid>
 
                     <Grid item>
