@@ -1,8 +1,6 @@
-# Material UI React Hook Form
+# Material UI / React Hook Form / YUP - Example Form
 
-### Painless Forms with MUI, React Hook Form and YUP
-
-##### Libraries
+### Libraries
 * React: `16.14.0`
 * Material UI: `4.11.2`
 * React Hook Form: `6.13.1`
