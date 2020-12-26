@@ -18,7 +18,7 @@ export default function Email(props) {
     return (
         <TextField
             name="email"
-            inputRef={register({required: true})}
+            inputRef={register()}
             error={errors.email}
             label={errors.email?.message ?? "Email Address"}
             className={classes.textField}

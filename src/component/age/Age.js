@@ -21,7 +21,7 @@ export default function Age(props) {
             name="age"
             type="number"
             // TODO: inputRef instead of ref important
-            inputRef={register({required: true})}
+            inputRef={register()}
             error={errors.age}
             label={errors.age?.message ?? "Age"}
             className={classes.textField}

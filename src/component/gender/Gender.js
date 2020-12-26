@@ -38,13 +38,8 @@ export default function Gender(props) {
         />
     )
 
-    useEffect(() => {
-        register('gender', {required: true})
-    }, [register])
-
-    useEffect(() => {
-        setRadioValue("")
-    }, [resetManual])
+    useEffect(() => register('gender'), [register]);
+    useEffect(() => setRadioValue(""), [resetManual])
 
     return (
         <FormControl component="fieldset">

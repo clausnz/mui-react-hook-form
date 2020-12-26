@@ -20,7 +20,7 @@ export default function Name(props) {
             // TODO: name field is important
             name="name"
             // TODO: inputRef instead of ref important
-            inputRef={register({required: true})}
+            inputRef={register()}
             error={errors.name}
             label={errors.name?.message ?? "Name"}
             className={classes.textField}

@@ -10,6 +10,7 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import Gender from "../gender/Gender";
 import {schema} from "./yupSchema";
 import Email from "../email/Email";
+import Hobby from "../hobby/Hobby";
 
 
 export default function Survey() {
@@ -20,7 +21,7 @@ export default function Survey() {
     // Age?
     // Gender?
     // Email?
-    // Subject?
+    // Hobby?
     // Comment?
 
     const reactHookForm = useForm({
@@ -78,6 +79,11 @@ export default function Survey() {
                     {/* Email */}
                     <Grid item xs={12}>
                         <Email reactHookForm={reactHookForm}/>
+                    </Grid>
+
+                    {/* Hobby */}
+                    <Grid item xs={12}>
+                        <Hobby reactHookForm={reactHookForm}/>
                     </Grid>
 
                     <Grid item>

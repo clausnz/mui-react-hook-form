@@ -14,4 +14,6 @@ export const schema = yup.object().shape({
     email: yup.string()
         .required("Please enter your email address")
         .email("Please enter a valid email address"),
+    hobby: yup.string()
+        .required("Please select your favorite hobby")
 });
