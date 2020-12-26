@@ -5,22 +5,16 @@ import {useStyles} from "./styles";
 export default function Age(props) {
 
     const {
-        reactHookForm
-    } = props
-
-    const {
         register,
         errors
-    } = reactHookForm
+    } = props
 
     const classes = useStyles()
 
     return (
         <TextField
-            // TODO: name field is important
             name="age"
             type="number"
-            // TODO: inputRef instead of ref important
             inputRef={register()}
             error={errors.age}
             label={errors.age?.message ?? "Age"}

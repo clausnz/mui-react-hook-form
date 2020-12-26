@@ -6,29 +6,26 @@ import Name from "../name/Name";
 import {useForm} from "react-hook-form";
 import Age from "../age/Age";
 import {yupResolver} from '@hookform/resolvers/yup';
-// import * as yup from 'yup';
 import Gender from "../gender/Gender";
 import {schema} from "./yupSchema";
 import Email from "../email/Email";
 import Hobby from "../hobby/Hobby";
+import Comment from "../comment/Comment";
 
 
 export default function Survey() {
 
     const classes = useStyles();
 
-    // Email?
-    // Age?
-    // Gender?
-    // Email?
-    // Hobby?
-    // Comment?
+    const {
+        handleSubmit,
+        reset,
+        formState: {isSubmitSuccessful},
+        register,
+        errors,
+        setValue
+    } = useForm({resolver: yupResolver(schema)});
 
-    const reactHookForm = useForm({
-        resolver: yupResolver(schema)
-    });
-    const {handleSubmit, reset, formState} = reactHookForm;
-    const {isSubmitSuccessful} = formState;
     const [resetManual, setResetManual] = useState(false)
 
     const resetForm = () => {
@@ -36,9 +33,7 @@ export default function Survey() {
         setResetManual(prevState => !prevState)
     }
 
-    useEffect(() => {
-        if (isSubmitSuccessful) resetForm();
-    }, [isSubmitSuccessful])
+    useEffect(() => isSubmitSuccessful && resetForm(), [isSubmitSuccessful])
 
     const onSubmit = data => console.log("*** form data", data);
 
@@ -49,7 +44,7 @@ export default function Survey() {
 
             <Paper className={classes.paper} elevation={3}>
 
-                <Grid container className={classes.gridContainer} spacing={1}>
+                <Grid container spacing={1}>
 
                     {/* Heading */}
                     <Grid item xs={12}>
@@ -60,30 +55,55 @@ export default function Survey() {
 
                     {/* Name */}
                     <Grid item xs={12}>
-                        <Name reactHookForm={reactHookForm}/>
+                        <Name
+                            register={register}
+                            errors={errors}
+                        />
                     </Grid>
 
                     {/* Age */}
                     <Grid item xs={12}>
-                        <Age reactHookForm={reactHookForm}/>
+                        <Age
+                            register={register}
+                            errors={errors}
+                        />
                     </Grid>
 
                     {/* Gender */}
                     <Grid item xs={12} className={classes.gridLeft}>
                         <Gender
-                            reactHookForm={reactHookForm}
+                            register={register}
+                            errors={errors}
+                            setValue={setValue}
                             resetManual={resetManual}
                         />
                     </Grid>
 
                     {/* Email */}
                     <Grid item xs={12}>
-                        <Email reactHookForm={reactHookForm}/>
+                        <Email
+                            register={register}
+                            errors={errors}
+                        />
                     </Grid>
 
                     {/* Hobby */}
                     <Grid item xs={12}>
-                        <Hobby reactHookForm={reactHookForm}/>
+                        <Hobby
+                            register={register}
+                            errors={errors}
+                            setValue={setValue}
+                            resetManual={resetManual}
+                        />
+                    </Grid>
+
+                    {/* Comment */}
+                    <Grid item xs={12}>
+                        <Comment
+                            register={register}
+                            errors={errors}
+                            resetManual={resetManual}
+                        />
                     </Grid>
 
                     <Grid item>
@@ -103,9 +123,7 @@ export default function Survey() {
                             Reset
                         </Button>
                     </Grid>
-
                 </Grid>
-
             </Paper>
         </form>
     )

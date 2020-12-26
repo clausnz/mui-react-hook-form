@@ -5,14 +5,10 @@ import {useStyles} from "./styles";
 export default function Hobby(props) {
 
     const {
-        reactHookForm
-    } = props
-
-    const {
         register,
         errors,
-        setValue
-    } = reactHookForm
+        resetManual
+    } = props
 
     const classes = useStyles();
     const [hobby, setHobby] = useState();
@@ -25,12 +21,8 @@ export default function Hobby(props) {
         "Pets"
     ]
 
-    const handleChange = e => {
-        setHobby(e.target.value);
-        setValue("hobby", e.target.value, {shouldValidate: true});
-    }
-
-    useEffect(() => register('hobby'), [register]);
+    const handleChange = e => setHobby(e.target.value);
+    useEffect(() => setHobby(""), [resetManual])
 
     return (
         <FormControl margin="dense" variant="outlined" className={classes.root}>
@@ -41,10 +33,10 @@ export default function Hobby(props) {
             </InputLabel>
             <Select
                 variant="outlined"
-                classes={{select: classes.selectInput}}
                 native
                 error={errors.hobby}
                 value={hobby}
+                inputRef={register()}
                 onChange={handleChange}
                 label="Favorite Hobby"
                 inputProps={{name: 'hobby', id: 'hobby-select'}}>

@@ -5,15 +5,11 @@ import {useStyles} from "./styles";
 export default function Gender(props) {
 
     const {
-        reactHookForm,
-        resetManual
-    } = props
-
-    const {
         register,
         errors,
-        setValue
-    } = reactHookForm
+        setValue,
+        resetManual
+    } = props
 
     const classes = useStyles();
     const [radioValue, setRadioValue] = React.useState("");

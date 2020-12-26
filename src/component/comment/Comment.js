@@ -2,7 +2,7 @@ import React from "react";
 import {TextField} from "@material-ui/core";
 import {useStyles} from "./styles";
 
-export default function Name(props) {
+export default function Comment(props) {
 
     const {
         register,
@@ -13,13 +13,14 @@ export default function Name(props) {
 
     return (
         <TextField
-            name="name"
             inputRef={register()}
-            error={errors.name}
-            label={errors.name?.message ?? "Name"}
-            className={classes.textField}
+            error={errors.comment}
+            className={classes.root}
+            name="comment"
+            label={errors.comment?.message ?? "Comment"}
+            multiline
+            rows={4}
             variant="outlined"
-            margin="dense"
         />
     )
 }

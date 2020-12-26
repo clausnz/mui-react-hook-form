@@ -5,13 +5,9 @@ import {useStyles} from "./styles";
 export default function Email(props) {
 
     const {
-        reactHookForm
-    } = props
-
-    const {
         register,
         errors
-    } = reactHookForm
+    } = props
 
     const classes = useStyles()
 
