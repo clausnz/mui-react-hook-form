@@ -1,7 +1,7 @@
 # Example Form with Material UI, React Hook Form and YUP
 
 ### CodeSandbox
-https://codesandbox.io/s/autumn-brook-93kec
+https://codesandbox.io/s/github/clausnz/mui-react-hook-form
 
 ### Libraries
 * React: `16.14.0`
