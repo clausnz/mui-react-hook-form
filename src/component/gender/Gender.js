@@ -38,12 +38,30 @@ export default function Gender(props) {
     useEffect(() => setRadioValue(""), [resetManual])
 
     return (
-        <FormControl component="fieldset">
-            {/* TODO: key important here */}
-            <RadioGroup key={Date.now()} row name="gender" value={radioValue} onChange={handleRadioChange}>
-                <FormControlLabelWithValidation value="Female" label="Female"/>
-                <FormControlLabelWithValidation value="Male" label="Male"/>
-                <p className={classes.error}>{errors.gender?.message}</p>
+        <FormControl
+            margin="dense"
+            component="fieldset">
+
+            <RadioGroup
+                key={Date.now()}
+                row
+                name="gender"
+                value={radioValue}
+                onChange={handleRadioChange}>
+
+                <FormControlLabelWithValidation
+                    value="Female"
+                    label="Female"
+                />
+                <FormControlLabelWithValidation
+                    value="Male"
+                    label="Male"
+                />
+
+                <p
+                    className={classes.error}>
+                    {errors.gender?.message}
+                </p>
             </RadioGroup>
         </FormControl>
     )

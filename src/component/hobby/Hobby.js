@@ -25,7 +25,7 @@ export default function Hobby(props) {
     useEffect(() => setHobby(""), [resetManual])
 
     return (
-        <FormControl margin="dense" variant="outlined" className={classes.root}>
+        <FormControl size="small" margin="dense" variant="outlined" className={classes.root}>
             <InputLabel
                 className={errors.hobby && classes.label}
                 htmlFor="hobby-select">

@@ -11,6 +11,7 @@ import {schema} from "./yupSchema";
 import Email from "../email/Email";
 import Hobby from "../hobby/Hobby";
 import Comment from "../comment/Comment";
+import Birthday from "../birthday/Birthday";
 
 
 export default function Survey() {
@@ -62,10 +63,20 @@ export default function Survey() {
                     </Grid>
 
                     {/* Age */}
+                    {/*<Grid item xs={12}>*/}
+                    {/*    <Age*/}
+                    {/*        register={register}*/}
+                    {/*        errors={errors}*/}
+                    {/*    />*/}
+                    {/*</Grid>*/}
+
+                    {/* Comment */}
                     <Grid item xs={12}>
-                        <Age
+                        <Birthday
                             register={register}
                             errors={errors}
+                            setValue={setValue}
+                            resetManual={resetManual}
                         />
                     </Grid>
 
@@ -92,7 +103,6 @@ export default function Survey() {
                         <Hobby
                             register={register}
                             errors={errors}
-                            setValue={setValue}
                             resetManual={resetManual}
                         />
                     </Grid>

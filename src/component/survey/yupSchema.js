@@ -18,4 +18,7 @@ export const schema = yup.object().shape({
         .required("Please select your favorite hobby"),
     comment: yup.string()
         .required("Please enter a comment"),
+    birthday: yup.date()
+        .typeError("Please use date format dd/mm/yyyy")
+        .max(new Date((new Date()).setDate((new Date()).getDate() - 1)), "Please select a date in the past")
 });
