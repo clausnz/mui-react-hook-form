@@ -13,6 +13,7 @@ export default function Comment(props) {
 
     return (
         <TextField
+            margin="dense"
             inputRef={register()}
             error={errors.comment}
             className={classes.root}

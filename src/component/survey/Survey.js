@@ -4,13 +4,13 @@ import {useStyles} from "./styles";
 import {Button, Grid, Typography} from "@material-ui/core";
 import Name from "../name/Name";
 import {useForm} from "react-hook-form";
-import Age from "../age/Age";
 import {yupResolver} from '@hookform/resolvers/yup';
 import Gender from "../gender/Gender";
 import {schema} from "./yupSchema";
 import Email from "../email/Email";
 import Hobby from "../hobby/Hobby";
 import Comment from "../comment/Comment";
+import Birthday from "../birthday/Birthday";
 
 
 export default function Survey() {
@@ -61,11 +61,13 @@ export default function Survey() {
                         />
                     </Grid>
 
-                    {/* Age */}
+                    {/* Birthday */}
                     <Grid item xs={12}>
-                        <Age
+                        <Birthday
                             register={register}
                             errors={errors}
+                            setValue={setValue}
+                            resetManual={resetManual}
                         />
                     </Grid>
 
@@ -92,7 +94,6 @@ export default function Survey() {
                         <Hobby
                             register={register}
                             errors={errors}
-                            setValue={setValue}
                             resetManual={resetManual}
                         />
                     </Grid>

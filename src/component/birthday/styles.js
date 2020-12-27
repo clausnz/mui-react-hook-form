@@ -1,7 +1,10 @@
 import {makeStyles} from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme) => ({
-    textField: {
+    root: {
         width: "100%"
     },
+    error: {
+        color: "red"
+    }
 }));
