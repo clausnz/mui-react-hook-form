@@ -4,7 +4,6 @@ import {useStyles} from "./styles";
 import {Button, Grid, Typography} from "@material-ui/core";
 import Name from "../name/Name";
 import {useForm} from "react-hook-form";
-import Age from "../age/Age";
 import {yupResolver} from '@hookform/resolvers/yup';
 import Gender from "../gender/Gender";
 import {schema} from "./yupSchema";
@@ -62,15 +61,7 @@ export default function Survey() {
                         />
                     </Grid>
 
-                    {/* Age */}
-                    {/*<Grid item xs={12}>*/}
-                    {/*    <Age*/}
-                    {/*        register={register}*/}
-                    {/*        errors={errors}*/}
-                    {/*    />*/}
-                    {/*</Grid>*/}
-
-                    {/* Comment */}
+                    {/* Birthday */}
                     <Grid item xs={12}>
                         <Birthday
                             register={register}
