@@ -26,12 +26,12 @@ export default function Birthday(props) {
     useEffect(() => {
         register("birthday");
         setValue("birthday", selectedDate, {shouldValidate: false});
-    }, [register]);
+    }, [register, selectedDate, setValue]);
 
     useEffect(() => {
         setSelectedDate(new Date());
         setValue("birthday", TODAY, {shouldValidate: false});
-    }, [resetManual]);
+    }, [resetManual, setValue]);
 
     return (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>

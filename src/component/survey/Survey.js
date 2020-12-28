@@ -33,7 +33,9 @@ export default function Survey() {
         setResetManual(prevState => !prevState)
     }
 
-    useEffect(() => isSubmitSuccessful && resetForm(), [isSubmitSuccessful])
+    useEffect(() => {
+        isSubmitSuccessful && resetForm()
+    }, [isSubmitSuccessful])
 
     const onSubmit = data => console.log("*** form data", data);
 
