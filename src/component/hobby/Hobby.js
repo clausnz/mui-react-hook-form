@@ -14,6 +14,7 @@ export default function Hobby(props) {
     const [hobby, setHobby] = useState();
 
     const hobbies = [
+        "",
         "Music",
         "Food",
         "Reading/Writing",
@@ -40,8 +41,7 @@ export default function Hobby(props) {
                 onChange={handleChange}
                 label="Favorite Hobby"
                 inputProps={{name: 'hobby', id: 'hobby-select'}}>
-                <option value=""/>
-                {hobbies.map(item => <option value={item.toLowerCase()}>{item}</option>)}
+                {hobbies.map(item => <option key={`hobby${item.toLowerCase()}`}>{item}</option>)}
             </Select>
         </FormControl>
     )
