@@ -15,7 +15,7 @@ export default function Comment(props) {
         <TextField
             margin="dense"
             inputRef={register()}
-            error={errors.comment}
+            error={!!errors.comment}
             className={classes.root}
             name="comment"
             label={errors.comment?.message ?? "Comment"}

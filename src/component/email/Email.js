@@ -15,7 +15,7 @@ export default function Email(props) {
         <TextField
             name="email"
             inputRef={register()}
-            error={errors.email}
+            error={!!errors.email}
             label={errors.email?.message ?? "Email Address"}
             className={classes.textField}
             variant="outlined"

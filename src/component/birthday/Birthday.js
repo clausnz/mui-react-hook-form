@@ -49,9 +49,9 @@ export default function Birthday(props) {
                 value={selectedDate}
                 onChange={handleOnChange}
                 helperText={errors.birthday?.message}
-                error={errors.birthday}
+                error={!!errors.birthday}
                 InputAdornmentProps={{position: "start"}}
-                {...(errors.birthday && {InputProps: {className: classes.error}})}
+                {...(!!errors.birthday && {InputProps: {className: classes.error}})}
             />
         </MuiPickersUtilsProvider>
     );

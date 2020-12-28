@@ -15,7 +15,7 @@ export default function Name(props) {
         <TextField
             name="name"
             inputRef={register()}
-            error={errors.name}
+            error={!!errors.name}
             label={errors.name?.message ?? "Name"}
             className={classes.textField}
             variant="outlined"

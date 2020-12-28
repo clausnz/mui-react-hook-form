@@ -23,7 +23,7 @@ export default function Hobby(props) {
     ]
 
     const handleChange = e => setHobby(e.target.value);
-    useEffect(() => setHobby(""), [resetManual])
+    useEffect(() => setHobby(undefined), [resetManual])
 
     return (
         <FormControl size="small" margin="dense" variant="outlined" className={classes.root}>
@@ -35,7 +35,7 @@ export default function Hobby(props) {
             <Select
                 variant="outlined"
                 native
-                error={errors.hobby}
+                error={!!errors.hobby}
                 value={hobby}
                 inputRef={register()}
                 onChange={handleChange}
