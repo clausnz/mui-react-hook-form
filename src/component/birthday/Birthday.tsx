@@ -3,12 +3,14 @@ import 'date-fns';
 import DateFnsUtils from '@date-io/date-fns';
 import {KeyboardDatePicker, MuiPickersUtilsProvider,} from '@material-ui/pickers';
 import {useStyles} from "./styles";
+import {BirthdayProps} from "./types";
 
-const TODAY = new Date()
+const TODAY = (new Date()).toDateString()
 
-export default function Birthday(props) {
+export default function Birthday(props: BirthdayProps) {
 
     const {
+        label,
         register,
         errors,
         setValue,
@@ -16,9 +18,9 @@ export default function Birthday(props) {
     } = props
 
     const classes = useStyles()
-    const [selectedDate, setSelectedDate] = useState(TODAY);
+    const [selectedDate, setSelectedDate] = useState<String>(TODAY);
 
-    const handleOnChange = date => {
+    const handleOnChange = (date: string) => {
         setSelectedDate(date);
         setValue("birthday", date, {shouldValidate: true});
     }
@@ -29,7 +31,7 @@ export default function Birthday(props) {
     }, [register, selectedDate, setValue]);
 
     useEffect(() => {
-        setSelectedDate(new Date());
+        setSelectedDate((new Date().toDateString()))
         setValue("birthday", TODAY, {shouldValidate: false});
     }, [resetManual, setValue]);
 
@@ -45,11 +47,11 @@ export default function Birthday(props) {
                 variant="inline"
                 format="dd/MM/yyyy"
                 margin="dense"
-                label="Birthday"
+                label={label}
                 value={selectedDate}
-                onChange={handleOnChange}
+                onChange={date => date && handleOnChange(date?.toDateString())}
                 helperText={errors.birthday?.message}
-                error={errors.birthday}
+                error={!!errors.birthday}
                 InputAdornmentProps={{position: "start"}}
                 {...(errors.birthday && {InputProps: {className: classes.error}})}
             />

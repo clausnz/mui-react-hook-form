@@ -58,6 +58,7 @@ export default function Survey() {
                     {/* Name */}
                     <Grid item xs={12}>
                         <Name
+                            label="Name"
                             register={register}
                             errors={errors}
                         />
